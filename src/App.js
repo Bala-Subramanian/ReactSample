@@ -5,18 +5,29 @@ class App extends Component{
   constructor(){
     super();
     this.state = {
-      string:'Good morning!'
+      movies:[
+        {
+          name:"Sivaji",
+          id:'mov1' // required for each key
+        },
+        {
+          name:"Padayappa",
+          id:'mov2' // required for each key
+        },
+        {
+          name:"Kabali",
+          id:'mov3' // required for each key
+        }
+      ]
     };
   }
   render(){
     return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{this.state.string}</p>
-        <button onClick={() => this.setState({string:'Good evening!' })}>Change Text </button> 
-        {/* to change the content of text*/}
-      </header>
+      {/* {}- this parenthesis is required for every js lines */}
+      {this.state.movies.map(movieDetails => (
+        <h1 key = {movieDetails.id}>{movieDetails.name}</h1>
+      ))}
     </div>
     );
   }
