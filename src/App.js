@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {CardList} from './components/card-list/card-list.component';
+
 class App extends Component{
   constructor(){
     super();
-    // To Get DummyJSONS 
-    // https://jsonplaceholder.typicode.com/users 
+    // To Get DummyJSONS
+    // https://jsonplaceholder.typicode.com/users
     this.state = {
       movies:[]
     };
@@ -14,15 +16,18 @@ class App extends Component{
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
     .then(responseDetails => this.setState({movies:responseDetails}))
-  
+
   }
   render(){
     return(
     <div className="App">
-      {/* {}- this parenthesis is required for every js lines */}
-      {this.state.movies.map(movieDetails => (
-        <h1 key = {movieDetails.id}>{movieDetails.name} </h1>
-      ))}
+      <CardList name='Bala'>
+        {/* {}- this parenthesis is required for every js lines */}
+          {this.state.movies.map(movieDetails => ( 
+          <h1 key = {movieDetails.id}>{movieDetails.name} </h1>
+        ))}
+      </CardList>
+      
     </div>
     );
   }
