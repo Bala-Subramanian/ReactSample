@@ -7,21 +7,14 @@ class App extends Component{
     // To Get DummyJSONS 
     // https://jsonplaceholder.typicode.com/users 
     this.state = {
-      movies:[
-        {
-          name:"Sivaji",
-          id:'mov1' // required for each key
-        },
-        {
-          name:"Padayappa",
-          id:'mov2' // required for each key
-        },
-        {
-          name:"Kabali",
-          id:'mov3' // required for each key
-        }
-      ]
+      movies:[]
     };
+  }
+  // to fetch API from backend. Sample
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
+    .then(responseDetails => this.setState({movies:responseDetails}))
+  
   }
   render(){
     return(
