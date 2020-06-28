@@ -4,6 +4,8 @@ import './App.css';
 class App extends Component{
   constructor(){
     super();
+    // To Get DummyJSONS 
+    // https://jsonplaceholder.typicode.com/users 
     this.state = {
       movies:[
         {
@@ -26,7 +28,7 @@ class App extends Component{
     <div className="App">
       {/* {}- this parenthesis is required for every js lines */}
       {this.state.movies.map(movieDetails => (
-        <h1 key = {movieDetails.id}>{movieDetails.name}</h1>
+        <h1 key = {movieDetails.id}>{movieDetails.name} </h1>
       ))}
     </div>
     );
