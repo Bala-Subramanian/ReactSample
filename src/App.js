@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {CardList} from './components/card-list/card-list.component';
+import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
+// import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 
 class App extends Component{
   constructor(){
@@ -9,29 +10,53 @@ class App extends Component{
     // To Get DummyJSONS
     // https://jsonplaceholder.typicode.com/users
     this.state = {
-      movies:[]
+      monsters:[] // this shouldbe the same variable we need to enter on componentDidMount responseDetails
     };
   }
   // to fetch API from backend. Sample
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
-    .then(responseDetails => this.setState({movies:responseDetails}))
-
+    var dummyJSON = "https://jsonplaceholder.typicode.com/users";
+    fetch(dummyJSON)//insert the URL from where we need to obtain the response
+         .then(response => response.json()) //the obtained values will be stored as response
+         .then(backendDetails => this.setState({monsters:backendDetails})) // assign the stored response and to the required variable
   }
   render(){
-    return(
-    <div className="App">
-      <CardList name='Bala'>
-        {/* {}- this parenthesis is required for every js lines */}
-          {this.state.movies.map(movieDetails => ( 
-          <h1 key = {movieDetails.id}>{movieDetails.name} </h1>
-        ))}
-      </CardList>
-      
+    // console.log(this.state.monsters);
+    return (
+      <div className = 'app'>
+        <h1>CARDLIST</h1>
+        <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard>
+        
+       {/* <CardListSingle monsters_arg1={this.state.monsters}></CardListSingle>passing monsters as a props */}
+        
+        
+          {/* {}- this parenthesis is required for every js lines */}
+          {/* <CardList>
+            {this.state.monsters.map(monst => (
+            <h2 key = {monst.id}>  {monst.name} </h2>
+          ))}
+        </CardList> */}
+        
+
     </div>
-    );
+    )
   }
 }
+export default App;
+
+// return(
+    // <div className="App">
+    //   <CardList name='Bala'>
+    //     {/* {}- this parenthesis is required for every js lines */}
+    //       {this.state.movies.map(movieDetails => (
+    //       <h1 key = {movieDetails.id}>  {movieDetails.name} </h1>
+    //     ))}
+    //   </CardList>
+
+    // </div>
+    // );
+
+
 // function App() {
 //   return (
 //     <div className="App">
@@ -52,5 +77,3 @@ class App extends Component{
 //     </div>
 //   );
 // }
-
-export default App;

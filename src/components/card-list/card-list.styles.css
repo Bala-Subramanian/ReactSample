@@ -1,8 +1,29 @@
 .card-list {
-  width: 85vw;
+  /* width: 85vw; */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 16fr 2fr 8fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
   /* fr = frame reference */
   grid-gap: 20px;
+}
+.card-list-single{
+  background-color: red;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2px;
+  padding: 1%;
+  color: black;
+  border: 1px white;
+}
+.gridclass{
+  width: 100%;
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background-color: tomato;
+}
+div{
+  color: wheat;
+  height: 100vh;  
 }
