@@ -36,9 +36,8 @@
     transform: rotate(360deg);
   }
 }
-
 h1{
   font-weight: bold;
-  color: #ffffff;
+  color: black;
   text-align: center;
 }

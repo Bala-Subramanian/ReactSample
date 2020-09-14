@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
+import {PropsState} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 
 class App extends Component{
   constructor(){
-    super();
+    super();//required bcoz we are extracting methods from React
     // To Get DummyJSONS
     // https://jsonplaceholder.typicode.com/users
     this.state = {
@@ -24,8 +25,12 @@ class App extends Component{
     // console.log(this.state.monsters);
     return (
       <div className = 'app'>
-        <h1>CARDLIST</h1>
-        <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard>
+        <h1>Learning PROPS and STATE</h1>
+        <PropsState firstname="Bruce">
+          <h1>This is children props</h1>
+        </PropsState>
+        {/* <h1>CARDLIST</h1>
+        <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard> */}
         
        {/* <CardListSingle monsters_arg1={this.state.monsters}></CardListSingle>passing monsters as a props */}
         
@@ -36,7 +41,6 @@ class App extends Component{
             <h2 key = {monst.id}>  {monst.name} </h2>
           ))}
         </CardList> */}
-        
 
     </div>
     )
