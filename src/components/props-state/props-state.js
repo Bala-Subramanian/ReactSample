@@ -39,8 +39,11 @@ export class CounterSetState extends Component {
         this.state = {
             count: 0
         }
-    }
+        this.onIncrementFiveConstructor = this.onIncrementFiveConstructor.bind(this);
+    }//end of constructor 
     onIncrement() {
+        console.log("onIncrement");
+        console.log(this);
         this.setState({
             count: this.state.count + 1
         })
@@ -59,12 +62,37 @@ export class CounterSetState extends Component {
         this.onIncrementOne()
         this.onIncrementOne()
     }
+    onIncrementFiveArrow = () =>{
+        console.log("onIncrementFiveArrow");
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+    }
+    onIncrementFiveConstructor() {
+        console.log("onIncrementFiveConstructor");
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+        this.onIncrementOne()
+    }
     render() {
         return (
             <div>
                 <h1>Count: {this.state.count}</h1>
                 <button onClick={() => this.onIncrement()}>Increment</button><br></br>
                 <button onClick={() => this.onIncrementFive()}>Increment Five</button>
+                <h1>EVENT BINDING</h1>
+                <button onClick={this.onIncrementFive.bind(this)}>EVENT BINDING METHOD 1 - USING BIND KEYWORD</button>
+                <br></br>
+                <button onClick={() => this.onIncrementFive()}>EVENT BINDING METHOD 2 - USING ARROW FUNCTIONS</button>
+                <br></br>
+                <button onClick={this.onIncrementFiveArrow}>EVENT BINDING METHOD 3 - BINDING IN CONSTRUCTOR USING ARROW METHOD</button>
+                <br></br>
+                <button onClick={this.onIncrementFiveConstructor}>EVENT BINDING METHOD 4 - BINDING IN CONSTRUCTOR (RECOMMENDED)</button>
+                
             </div>
         );
     }
