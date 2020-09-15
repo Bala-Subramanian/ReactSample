@@ -1,52 +1,63 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
-import {PropsState} from "./components/props-state/props-state";
+//import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
+import {PropsState, Message} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 
 class App extends Component{
-  constructor(){
-    super();//required bcoz we are extracting methods from React
-    // To Get DummyJSONS
-    // https://jsonplaceholder.typicode.com/users
-    this.state = {
-      monsters:[] // this shouldbe the same variable we need to enter on componentDidMount responseDetails
-    };
-  }
-  // to fetch API from backend. Sample
-  componentDidMount(){
-    var dummyJSON = "https://jsonplaceholder.typicode.com/users";
-    fetch(dummyJSON)//insert the URL from where we need to obtain the response
-         .then(response => response.json()) //the obtained values will be stored as response
-         .then(backendDetails => this.setState({monsters:backendDetails})) // assign the stored response and to the required variable
-  }
-  render(){
-    // console.log(this.state.monsters);
+  render() {
     return (
-      <div className = 'app'>
-        <h1>Learning PROPS and STATE</h1>
+      <div className="App">
         <PropsState firstname="Bruce">
-          <h1>This is children props</h1>
+          <p>This is child</p>
         </PropsState>
-        {/* <h1>CARDLIST</h1>
-        <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard> */}
-        
-       {/* <CardListSingle monsters_arg1={this.state.monsters}></CardListSingle>passing monsters as a props */}
-        
-        
-          {/* {}- this parenthesis is required for every js lines */}
-          {/* <CardList>
-            {this.state.monsters.map(monst => (
-            <h2 key = {monst.id}>  {monst.name} </h2>
-          ))}
-        </CardList> */}
-
-    </div>
-    )
+        <Message></Message>
+      </div>
+    );
   }
 }
 export default App;
+// class App extends Component{
+//   constructor(){
+//     super();//required bcoz we are extracting methods from React
+//     // To Get DummyJSONS
+//     // https://jsonplaceholder.typicode.com/users
+//     this.state = {
+//       monsters:[] // this shouldbe the same variable we need to enter on componentDidMount responseDetails
+//     };
+//   }
+//   // to fetch API from backend. Sample
+//   componentDidMount(){
+//     var dummyJSON = "https://jsonplaceholder.typicode.com/users";
+//     fetch(dummyJSON)//insert the URL from where we need to obtain the response
+//          .then(response => response.json()) //the obtained values will be stored as response
+//          .then(backendDetails => this.setState({monsters:backendDetails})) // assign the stored response and to the required variable
+//   }
+//   render(){
+//     // console.log(this.state.monsters);
+//     return (
+//       <div className = 'app'>
+//         <h1>Learning PROPS and STATE</h1>
+//         <PropsState firstname="Bruce"></PropsState>
+//         <PropsState firstname="Bruce Wayne"></PropsState>
+//         {/* <h1>CARDLIST</h1>
+//         <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard> */}
+        
+//        {/* <CardListSingle monsters_arg1={this.state.monsters}></CardListSingle>passing monsters as a props */}
+        
+        
+//           {/* {}- this parenthesis is required for every js lines */}
+//           {/* <CardList>
+//             {this.state.monsters.map(monst => (
+//             <h2 key = {monst.id}>  {monst.name} </h2>
+//           ))}
+//         </CardList> */}
+
+//     </div>
+//     )
+//   }
+// }
+//export default App;
 
 // return(
     // <div className="App">
