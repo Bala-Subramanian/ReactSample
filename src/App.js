@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 //import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
-import {PropsState, Message} from "./components/props-state/props-state";
+import {PropsState, Message, CounterSetState} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 
 class App extends Component{
@@ -12,6 +12,7 @@ class App extends Component{
           <p>This is child</p>
         </PropsState>
         <Message></Message>
+        <CounterSetState></CounterSetState>
       </div>
     );
   }
