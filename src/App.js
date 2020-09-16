@@ -3,16 +3,18 @@ import './App.css';
 //import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
 import {PropsState, Message, CounterSetState} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
-
+import NameList from "./components/NameList/NameList";
 class App extends Component{
   render() {
     return (
       <div className="App">
-        <PropsState firstname="Bruce">
+        {/* <PropsState firstname="Bruce">
           <p>This is child</p>
         </PropsState>
         <Message></Message>
-        <CounterSetState></CounterSetState>
+        <CounterSetState></CounterSetState> */}
+        {/* this is for list rendering */}
+        <NameList />
       </div>
     );
   }
