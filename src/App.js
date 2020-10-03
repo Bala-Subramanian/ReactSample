@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
-//import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
-import {PropsState, Message, CounterSetState} from "./components/props-state/props-state";
+// import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
+// import {PropsState, Message, CounterSetState} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 import NameList from "./components/NameList/NameList";
+// import LifeCycleA from "./components/LifeCycle/LifeCycleA";
 class App extends Component{
   render() {
     return (
@@ -15,6 +16,7 @@ class App extends Component{
         <CounterSetState></CounterSetState> */}
         {/* this is for list rendering */}
         <NameList />
+        {/* <LifeCycleA></LifeCycleA> */}
       </div>
     );
   }

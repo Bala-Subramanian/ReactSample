@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import IndividualNameList from './IndividualNameList';
-
+import Formcomponent from '../formcomponent/Formcomponent';
 export class NameList extends Component {
     render() {
-        const listofpostsurl = "https://jsonplaceholder.typicode.com/posts";
+      //  const listofpostsurl = "https://jsonplaceholder.typicode.com/posts";
         const persons = [
             {
                 "userId": 1,
@@ -25,15 +25,15 @@ export class NameList extends Component {
             }
         ];
 
-        const personList = persons.map(person => (<h2>Person userId is: {person.userId}, Person id is: {person.id} </h2>))
+        const personList = persons.map(person => (<h2 key = {person.id}>Person userId is: {person.userId}, Person id is: {person.id} </h2>))
         const personDetailParam = persons.map(personDetail =>
-            <IndividualNameList personDetail ={personDetail}/>
+            <IndividualNameList key={personDetail.id} personDetail ={personDetail}/>
         );
         return (
             <div>
-                {personList}
-                
-                {personDetailParam}
+                {/* {personList} */}
+                {/* {personDetailParam} */}
+                <Formcomponent />
             </div>
         )
     }

@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
+  //React.StrictMode: this will give the logs twice
+  <React.StrictMode> 
     <App />
   </React.StrictMode>,
   document.getElementById('root')
