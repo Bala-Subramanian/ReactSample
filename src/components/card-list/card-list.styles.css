@@ -7,7 +7,6 @@
   grid-gap: 20px;
 }
 .card-list-single{
-  background-color: red;
   display:grid;
   grid-template-columns: 1fr 1fr;
   margin: 2px;
@@ -21,7 +20,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  background-color: tomato;
 }
 div{
   color: wheat;

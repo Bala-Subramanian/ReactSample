@@ -1,14 +1,53 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
-// import {CardList, CardListSingle,CardListFromCard} from './components/card-list/card-list.component';
+
+import { CardList, CardListSingle, CardListFromCard } from './components/card-list/card-list.component';
 // import {PropsState, Message, CounterSetState} from "./components/props-state/props-state";
 // import Dummyhome, {BalaComp} from 'E:/MyProjects/react/sampleappnew/src/components/dummy-component/dummy-list';
 // import NameList from "./components/NameList/NameList";
-import LifeCycleA from "./components/LifeCycle/LifeCycleA";
-class App extends Component{
+// import LifeCycleA from "./components/LifeCycle/LifeCycleA";
+import SearchComponent from "./components/SearchComponent/SearchComponent";
+
+class App extends Component {
+  constructor() {
+    super();//required bcoz we are extracting methods from React
+    // To Get DummyJSONS
+    // https://jsonplaceholder.typicode.com/users
+    this.state = {
+      monsters: [], // this shouldbe the same variable we need to enter on componentDidMount responseDetails
+      searchField: ""
+    };
+
+  }
+  // to fetch API from backend. Sample
+  componentDidMount() {
+    var dummyJSON = "https://jsonplaceholder.typicode.com/users";
+    fetch(dummyJSON)//insert the URL from where we need to obtain the response
+      .then(response => response.json()) //the obtained values will be stored as response
+      .then(backendDetails => this.setState({ monsters: backendDetails })) // assign the stored response and to the required variable
+  }
+  onSearch = (event) => {
+    console.log(event.target.value);
+    this.setState({
+      "searchField": event.target.value
+    },
+      () => { console.log(this.state) }//to get state value - callback fn after setstate is completed
+    )
+  }
   render() {
+    const filteredMonster = this.state.monsters.filter(monster =>
+      monster.name.toLowerCase().includes(this.state.searchField.toLowerCase())
+    );
     return (
       <div className="App">
+        <h1>CARDLIST</h1>
+        <SearchComponent
+          placeholder="Seach monsters"
+          handleRequest = {this.onSearch}
+        />
+        <CardListFromCard monstersCard={filteredMonster}></CardListFromCard>
+
+        {/* <CardListSingle></CardListSingle> */}
         {/* <PropsState firstname="Bruce">
           <p>This is child</p>
         </PropsState>
@@ -16,7 +55,7 @@ class App extends Component{
         <CounterSetState></CounterSetState> */}
         {/* this is for list rendering */}
         {/* <NameList /> */}
-        <LifeCycleA></LifeCycleA>
+        {/* <LifeCycleA></LifeCycleA> */}
       </div>
     );
   }
@@ -47,10 +86,10 @@ export default App;
 //         <PropsState firstname="Bruce Wayne"></PropsState>
 //         {/* <h1>CARDLIST</h1>
 //         <CardListFromCard monstersCard={this.state.monsters}></CardListFromCard> */}
-        
+
 //        {/* <CardListSingle monsters_arg1={this.state.monsters}></CardListSingle>passing monsters as a props */}
-        
-        
+
+
 //           {/* {}- this parenthesis is required for every js lines */}
 //           {/* <CardList>
 //             {this.state.monsters.map(monst => (
